@@ -1,0 +1,109 @@
+body{
+
+background: linear-gradient(rgb(245, 129, 22), rgb(236, 221, 0));
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+
+#h1{
+
+    color: rgb(247, 247, 127);
+    font-family: "consolas", sans-serif;
+    font-size: 32px;
+    font-weight: bolder;
+    text-decoration: yellow wavy underline;
+    position: relative;
+    left: 500px;
+
+}
+
+#h2{
+
+font-size: 20px;
+font-weight: bolder;
+border-style: outset;
+box-shadow: inset;
+border-width: 3px;
+border-color: gold;
+border-radius: 50px;
+padding: 15px;
+}
+
+#p11{
+
+text-decoration: black underline;
+font-size: 22px;
+font-weight: bolder;
+
+
+}
+
+#p111{
+
+font-weight: bold;
+font-size: large;
+
+}
+
+#label{
+
+border-style: outset;
+border-width: 2px;
+padding: 3px;
+box-shadow: inset;
+font-weight: lighter;
+background-color: rgb(233, 230, 54);
+}
+
+#kopce{
+
+background-color: rgb(34, 210, 14);
+border-color: rgb(208, 223, 0);
+font-style: italic;
+border-width: 5px;
+border-style: outset;
+font-size: large;
+font-weight: lighter;
+position: relative;
+left: 670px;
+top: 35px;
+}
+
+#slika{
+
+position: relative;
+left: 500px;
+
+animation: mySlide;
+animation-iteration-count: 2;
+animation-duration: 5s;
+
+
+}
+
+@keyframes mySlide{
+    from{margin-left: 100%;}
+    to{margin-left: 0%;}
+}
+
+
+#kopce2{
+
+background-color: rgb(34, 210, 14);
+border-color: rgb(208, 223, 0);
+border-width: 5px;
+border-style: outset;
+font-size: large;
+padding: 5px;
+font-weight: bolder;
+box-shadow: inset;
+}
+
+#test{
+
+position: relative;
+left: 380px;
+top: 60px;
+font-style: italic;
+font-weight: bolder
+}
