@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Галерија - Охрид</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="Pozadina.css">
+</head>
+<body>
+  <header class="bg-dark text-white text-center py-3">
+    <h1>City Explorer: Охрид</h1>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="PrvproektOhrid.html">Почетна</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Најава</a></li>
+            <li class="nav-item"><a class="nav-link" href="galerijazaOhrid.html">Галерија</a></li>
+            <li class="nav-item"><a class="nav-link" href="blogzaOhrid.html">Блог</a></li>
+            <li class="nav-item"><a class="nav-link" href="anketazaOhrid.html">Анкета</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="container my-5">
+    <h2 class="text-center mb-4">Галерија</h2>
+    <div class="gallery d-flex flex-wrap justify-content-center gap-3">
+
+      <!-- Слика 1 -->
+      <div class="gallery-item text-center">
+        <img src="Sliki/ohrid11.jpg" class="img-thumbnail">
+        <div class="mt-2">
+          <button class="btn btn-success btn-sm me-1" onclick="likePhoto(1)">👍 Like</button>
+          <button class="btn btn-danger btn-sm" onclick="dislikePhoto(1)">👎 Dislike</button>
+          <p id="likes1">Likes: 0 | Dislikes: 0</p>
+          <textarea class="form-control mt-2" rows="2" placeholder="Коментар..." id="comment1"></textarea>
+        </div>
+      </div>
+
+      <!-- Слика 2 -->
+      <div class="gallery-item text-center">
+        <img src="Sliki/ohrid22.jpg" class="img-thumbnail">
+        <div class="mt-2">
+          <button class="btn btn-success btn-sm me-1" onclick="likePhoto(2)">👍 Like</button>
+          <button class="btn btn-danger btn-sm" onclick="dislikePhoto(2)">👎 Dislike</button>
+          <p id="likes2">Likes: 0 | Dislikes: 0</p>
+          <textarea class="form-control mt-2" rows="2" placeholder="Коментар..." id="comment2"></textarea>
+        </div>
+      </div>
+
+      <!-- Слика 3 -->
+      <div class="gallery-item text-center">
+        <img src="Sliki/ohrid33.jpg" class="img-thumbnail">
+        <div class="mt-2">
+          <button class="btn btn-success btn-sm me-1" onclick="likePhoto(3)">👍 Like</button>
+          <button class="btn btn-danger btn-sm" onclick="dislikePhoto(3)">👎 Dislike</button>
+          <p id="likes3">Likes: 0 | Dislikes: 0</p>
+          <textarea class="form-control mt-2" rows="2" placeholder="Коментар..." id="comment3"></textarea>
+        </div>
+      </div>
+
+      <!-- Слика 4 -->
+      <div class="gallery-item text-center">
+        <img src="Sliki/ohrid44.JPG" class="img-thumbnail">
+        <div class="mt-2">
+          <button class="btn btn-success btn-sm me-1" onclick="likePhoto(4)">👍 Like</button>
+          <button class="btn btn-danger btn-sm" onclick="dislikePhoto(4)">👎 Dislike</button>
+          <p id="likes4">Likes: 0 | Dislikes: 0</p>
+          <textarea class="form-control mt-2" rows="2" placeholder="Коментар..." id="comment4"></textarea>
+        </div>
+      </div>
+
+      <!-- Слика 5 -->
+      <div class="gallery-item text-center">
+        <img src="Sliki/ohrid55.jpg" class="img-thumbnail">
+        <div class="mt-2">
+          <button class="btn btn-success btn-sm me-1" onclick="likePhoto(5)">👍 Like</button>
+          <button class="btn btn-danger btn-sm" onclick="dislikePhoto(5)">👎 Dislike</button>
+          <p id="likes5">Likes: 0 | Dislikes: 0</p>
+          <textarea class="form-control mt-2" rows="2" placeholder="Коментар..." id="comment5"></textarea>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="bg-dark text-white text-center py-3">
+    <p>&copy; 2025 City Explorer Ohrid</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Иницијализација на лајкови, дислајкови и коментари од localStorage
+    const galleryStats = {};
+    for (let i = 1; i <= 5; i++) {
+      // Ако веќе имаме зачувано, користиме тоа
+      const saved = JSON.parse(localStorage.getItem(`photo${i}`)) || { likes: 0, dislikes: 0, comment: '' };
+      galleryStats[i] = saved;
+
+      // Вчитуваме на страната
+      document.getElementById(`likes${i}`).innerText = `Likes: ${saved.likes} | Dislikes: ${saved.dislikes}`;
+      document.getElementById(`comment${i}`).value = saved.comment;
+
+      // Додај слушател за автоматско зачувување на коментар
+      document.getElementById(`comment${i}`).addEventListener('input', (e) => {
+        galleryStats[i].comment = e.target.value;
+        localStorage.setItem(`photo${i}`, JSON.stringify(galleryStats[i]));
+      });
+    }
+
+    function likePhoto(id) {
+      galleryStats[id].likes++;
+      updateStats(id);
+    }
+
+    function dislikePhoto(id) {
+      galleryStats[id].dislikes++;
+      updateStats(id);
+    }
+
+    function updateStats(id) {
+      document.getElementById(`likes${id}`).innerText = `Likes: ${galleryStats[id].likes} | Dislikes: ${galleryStats[id].dislikes}`;
+      // Чување во localStorage
+      localStorage.setItem(`photo${id}`, JSON.stringify(galleryStats[id]));
+    }
+  </script>
+</body>
+</html>

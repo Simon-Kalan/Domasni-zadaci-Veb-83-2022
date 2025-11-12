@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Анкета за посетителите</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+
+<div class="container-fluid vh-100">
+  <div class="row h-100 justify-content-center align-items-center">
+    <div class="col-12 col-md-6 col-lg-4 p-4 border rounded shadow bg-light">
+      <h2 class="text-center mb-4">Анкета за посетителите</h2>
+      <form>
+        <div class="mb-3">
+          <label>Вашето име:</label>
+          <input type="text" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+          <label>Како го оценувате изгледот на веб страната?</label>
+          <select class="form-select">
+            <option>Одличен</option>
+            <option>Добар</option>
+            <option>Просечен</option>
+            <option>Слаб</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label>Што најмногу ви се допадна?</label><br />
+          <input type="checkbox" /> Галерија<br />
+          <input type="checkbox" /> Блог<br />
+          <input type="checkbox" /> Дизајн<br />
+          <input type="checkbox" /> Содржина<br />
+        </div>
+
+        <div class="mb-3">
+          <label>Ваши коментари:</label>
+          <textarea class="form-control" rows="3"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Испрати</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
