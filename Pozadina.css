@@ -1,0 +1,72 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.pozadinska {
+  background: url('/Sliki/Lihnida.jpg') no-repeat center center/cover;
+  height: 80vh;
+  position: relative;
+}
+
+.overlay {
+  background-color: rgba(2, 2, 4, 0.5);
+  padding: 50px;
+  border-radius: 10px;
+}
+
+h1 {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 10px 20px; 
+  border-radius: 15px; 
+  display: inline-block; 
+}
+
+.double-img {
+  display: flex;
+  justify-content: center; /* центрира сликите */
+}
+
+.double-img img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-left: 2px;  /* растојание помеѓу сликите */
+  margin-right: 2px;
+  transform: translateX(100%);
+  animation: mySlide 6s ease-in-out 1 forwards;
+}
+
+
+.blogsliki .text {
+  margin-top: 5px; /* растојание помеѓу сликите и текстот */
+  text-align: center;
+}
+
+.blogsliki {
+    text-align: center;
+}
+
+.blogsliki img {
+    display: inline-block; 
+    transform: translateX(100%); 
+    animation: mySlide 5s ease-in-out 1 forwards; 
+}
+
+/* Времетраење за секоја слика */
+.blogsliki:nth-child(1) img { animation-duration: 1s; }
+.blogsliki:nth-child(2) img { animation-duration: 2; }
+.blogsliki:nth-child(3) img { animation-duration: 4s; }
+.blogsliki:nth-child(4) img { animation-duration: 6s; }
+.blogsliki:nth-child(5) img { animation-duration: 8s; }
+.blogsliki:nth-child(6) img { animation-duration: 8.5s; }
+.blogsliki:nth-child(7) img { animation-duration: 9.5s; }
+.blogsliki:nth-child(8) img { animation-duration: 10.5s; }
+.blogsliki:nth-child(9) img { animation-duration: 12s; }
+.blogsliki:nth-child(10) img { animation-duration: 13s; }
+
+@keyframes mySlide {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }      
+}
+
