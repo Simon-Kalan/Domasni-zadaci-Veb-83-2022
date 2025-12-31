@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  function filterTable() {
+    var firstInput = $("#myInput").val().toLowerCase();
+    var cityInput = $("#cityInput").val().toLowerCase();
+    var hobbyInput = $("#hobbyInput").val().toLowerCase();
+
+    $("#myTable tr").filter(function() {
+      var text = $(this).text().toLowerCase();
+      var city = $(this).find("td:eq(3)").text().toLowerCase();
+      var hobby = $(this).find("td:eq(4)").text().toLowerCase();
+
+      $(this).toggle(
+        text.indexOf(firstInput) > -1 &&
+        city.indexOf(cityInput) > -1 &&
+        hobby.indexOf(hobbyInput) > -1
+      );
+    });
+  }
+
+  $("#myInput, #cityInput, #hobbyInput").on("keyup", filterTable);
+});
+</script>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2>Filterable Table</h2>
+<p>Type something in the input fields to search the table:</p>  
+
+<input id="myInput" type="text" placeholder="Search by name or email..">
+<input id="cityInput" type="text" placeholder="Search by city..">
+<input id="hobbyInput" type="text" placeholder="Search by hobby..">
+
+<br><br>
+
+<table>
+  <thead>
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Email</th>
+    <th>City</th>
+    <th>Hobby</th>
+  </tr>
+  </thead>
+  <tbody id="myTable">
+  <tr>
+    <td>John</td>
+    <td>Doe</td>
+    <td>john@example.com</td>
+    <td>Skopje</td>
+    <td>Football</td>
+  </tr>
+  <tr>
+    <td>Mary</td>
+    <td>Moe</td>
+    <td>mary@mail.com</td>
+    <td>Bitola</td>
+    <td>Painting</td>
+  </tr>
+  <tr>
+    <td>July</td>
+    <td>Dooley</td>
+    <td>july@greatstuff.com</td>
+    <td>Ohrid</td>
+    <td>Swimming</td>
+  </tr>
+  <tr>
+    <td>Anja</td>
+    <td>Ravendale</td>
+    <td>a_r@test.com</td>
+    <td>Skopje</td>
+    <td>Reading</td>
+  </tr>
+  </tbody>
+</table>
+
+</body>
+</html>
