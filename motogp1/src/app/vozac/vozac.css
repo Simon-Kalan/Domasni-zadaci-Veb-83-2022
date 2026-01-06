@@ -1,0 +1,12 @@
+.is-first{
+    display: inline-block;
+   border: 2px solid rgb(190, 39, 39);
+   background-color: rgb(221, 134, 20);
+   padding: 10px;
+   margin: 10px;
+   border-radius: 20px;
+   width: fit-content;
+   font-size: large;
+   text-align: center;
+    color:yellowgreen;
+}
