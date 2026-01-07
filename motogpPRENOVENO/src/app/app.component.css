@@ -1,0 +1,41 @@
+/* Лого стил */
+.logo {
+  width: 300px;
+  display: block;
+  margin: 20px auto;
+  filter: drop-shadow(2px 4px 6px rgb(17, 230, 91));
+  
+}
+
+.vozaci-lista {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.is-first {
+  border: 2px solid rgb(36, 16, 164);
+  box-shadow: 0 4px 10px rgba(45,28,156,0.3);
+    background-color: #5fcea0;
+
+}
+
+.is-even {
+  border: 2px solid rgb(200,50,50);
+  box-shadow: 0 4px 10px rgba(200,50,50,0.3);
+    background-color: #6ca0e4;
+
+}
+
+.is-first p {
+  text-shadow: 2px 2px 4px rgb(45,28,156);
+}
+
+.is-last p {
+  text-shadow: 2px 2px 4px rgb(200,50,50);
+}
+
+.is-even p {
+  text-shadow: 2px 2px 4px rgb(100,100,100);
+}
