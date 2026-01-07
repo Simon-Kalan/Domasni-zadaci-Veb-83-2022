@@ -1,0 +1,14 @@
+<div style="text-align: center; margin-top: 20px;">
+  <h1>Меморија – најди го парот</h1>
+  <p>Обиди: {{ obidi }}</p>
+
+  <div class="tabla">
+    <img *ngFor="let card of cards"
+     class="karta"
+     [src]="card.flipped || card.matched ? card.front : back"
+     (click)="flipCard(card)">
+
+  </div>
+
+  <button (click)="restartGame()" style="margin-top: 20px;">Restart</button>
+</div>
